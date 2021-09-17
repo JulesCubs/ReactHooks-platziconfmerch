@@ -3,13 +3,16 @@ import { PayPalButton } from 'react-paypal-button-v2'
 import AppContext from '../context/AppContext'
 import '../styles/components/Payment.css'
 import handleSumTotal from '../utils/handleSumTotal'
+import config from '../../config'
+
+const ENV = config
 
 const Payment = (history) => {
     const { state, addNewOrder } = useContext(AppContext);
     const { cart, buyer } = state; 
 
     const paypalOptions = {
-        clientId: 'access_token$sandbox$vwq2cs7d62xrjpdk$97f1ec4f61cd2fc24ca6b86478d6888a',
+        clientId: `${ENV}`,
         intent: 'capture',
         currency: 'USD'
     }
@@ -48,10 +51,10 @@ const Payment = (history) => {
                 ))}
                 <div className="Payment-button">
                     <PayPalButton                         
-                        options={paypalOptions}
+                        paypalOptions={paypalOptions}
                         buttonStyles={buttonStyles}
                         amount={handleSumTotal(cart)}
-                        createOrder={() => console.log('Start Payment')}
+                        // createOrder={() => console.log('Start Payment')}
                         onSuccess={data => handlePaymentSuccess(data)}
                         onError={error => console.log(error)}
                         onCancel={data => console.log(data)}
