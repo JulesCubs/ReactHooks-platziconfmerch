@@ -3,9 +3,9 @@ import { PayPalButton } from 'react-paypal-button-v2'
 import AppContext from '../context/AppContext'
 import '../styles/components/Payment.css'
 import handleSumTotal from '../utils/handleSumTotal'
-import config from '../../config'
+import { clientIdPaypal } from '../../config'
 
-const ENV = config
+const ENV = clientIdPaypal
 
 const Payment = (history) => {
     const { state, addNewOrder } = useContext(AppContext);
@@ -23,7 +23,6 @@ const Payment = (history) => {
     }
 
     const handlePaymentSuccess = (data) => {
-        console.log(data)
         if(data.status === 'COMPLETED') {
             const newOrder = {
                 buyer,
