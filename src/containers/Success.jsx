@@ -1,11 +1,13 @@
 import React, { useContext } from 'react'
 import AppContext from '../context/AppContext'
 import Map from '../components/Map'
+// import useGoogleAddress from '../hooks/useGoogleAddress'
 import '../styles/components/Success.css'
 
 const Success = () => {
     const { state } = useContext(AppContext)
     const { buyer } = state
+    // const address = useGoogleAddress(buyer[0].address)
 
     return (
         <div className="Success">
@@ -15,6 +17,7 @@ const Success = () => {
                 <div className="Success-map">
                     Google Maps
                     <Map />
+                    {/* <Map data={address}/> */}
                 </div>
             </div>
         </div>

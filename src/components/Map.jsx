@@ -4,7 +4,7 @@ import { googleMapsApiKey } from '../../config'
 
 const ENV = googleMapsApiKey
 
-const Map = () => {
+const Map = ({data}) => {
 
     const mapStyles = {
         height: "50vh",
@@ -13,6 +13,8 @@ const Map = () => {
 
     const defaultCenter = {
         lat: 19.4525486, lng: -99.15754534
+        // lat: data.lat, 
+        // lng: data.lng
     }
 
     return (
