@@ -51,12 +51,12 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: 'assets/[name].css',
     }),
-    new Dotenv({
-			path: './.env',
-			safe: true,
-			systemvars: true,
-			defaults: false,
-		}),
+    // new Dotenv({
+		// 	path: './.env',
+		// 	safe: true,
+		// 	systemvars: true,
+		// 	defaults: false,
+		// }),
     new webpack.DefinePlugin({
 			'process.env': {
 				PAYPAL_ACCESS: JSON.stringify(process.env.PAYPAL_ACCESS),
