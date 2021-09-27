@@ -9,8 +9,12 @@ const useGoogleAddress = address => {
     const API = `https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=${ENV}`
 
     useEffect( async() => {
-        const response = await axios(API)
-        setMap(response.data.results[0].geometry.location)
+        const getData = async () => {
+            const response = await axios(API);
+            setMap(response.data.results[0].geometry.location);
+        }
+
+        getData();
     }, [])
 
     return map
